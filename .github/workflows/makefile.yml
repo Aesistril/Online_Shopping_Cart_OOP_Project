@@ -32,3 +32,5 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           artifacts: "build/shoppingcart.jar"
+          allowUpdates: true
+          artifactErrorsFailBuild: true

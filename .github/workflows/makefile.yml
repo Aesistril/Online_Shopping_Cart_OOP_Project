@@ -1,11 +1,9 @@
-name: Java Makefile CI
+name: Java Makefile
 
-on:
+on: 
   push:
-    branches: ["main"]
-  pull_request:
-    branches: ["main"]
-  workflow_dispatch:
+    tags:
+    - '*'
 
 jobs:
   build:
@@ -29,3 +27,8 @@ jobs:
         with:
           name: shoppingcart-jar
           path: build/shoppingcart.jar
+
+      - name: Do release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "build/shoppingcart.jar"
